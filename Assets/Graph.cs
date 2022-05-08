@@ -4,33 +4,16 @@ using UnityEngine;
 
 public class Graph : MonoBehaviour
 {
-    private static float SENSITIVITY = 0.4f;
-
-    private bool shouldRotate = false;
-    private Vector3 prevMousePos;
-    private Vector3 rotation = Vector3.zero;
+    private static float ROTATION_SPEED = 0.2f;
 
     void Start() {}
 
-    void Update() {
-        if (!shouldRotate) return;
+    void Update() {}
 
-        Vector3 nextMousePos = Input.mousePosition;
-        Vector3 mouseOffset = nextMousePos - prevMousePos;
-        rotation.x = mouseOffset.y * SENSITIVITY;
-        rotation.y = -(mouseOffset.x) * SENSITIVITY;
-        transform.eulerAngles += rotation;
-        prevMousePos = nextMousePos;
-    }
-
-    void OnMouseDown()
-    {
-        prevMousePos = Input.mousePosition;
-        shouldRotate = true;
-    }
-
-    void OnMouseUp()
-    {
-        shouldRotate = false;
+    public void OnMouseDrag() {
+        float rotateX = Input.GetAxis("Mouse X") * ROTATION_SPEED;
+		float rotateY = Input.GetAxis("Mouse Y") * ROTATION_SPEED;
+		transform.RotateAround(Vector3.down, rotateX);
+		transform.RotateAround(Vector3.right, rotateY);
     }
 }
