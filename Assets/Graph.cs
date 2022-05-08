@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Graph : MonoBehaviour
 {
-    private static float ROTATION_SPEED = 0.2f;
+    private static float ROTATION_SPEED = 7.0f;
 
     void Start() {}
 
@@ -13,7 +13,6 @@ public class Graph : MonoBehaviour
     public void OnMouseDrag() {
         float rotateX = Input.GetAxis("Mouse X") * ROTATION_SPEED;
 		float rotateY = Input.GetAxis("Mouse Y") * ROTATION_SPEED;
-		transform.RotateAround(Vector3.down, rotateX);
-		transform.RotateAround(Vector3.right, rotateY);
+        transform.Rotate(rotateY, -rotateX, 0.0f);
     }
 }
