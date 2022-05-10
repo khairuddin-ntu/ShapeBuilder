@@ -6,7 +6,7 @@ public class Graph : MonoBehaviour
 {
     private static float ROTATION_SPEED = 7.0f;
     private static float SCALE_SPEED = 0.2f;
-    private static Vector3 MAX_SCALE = new Vector3(7f, 7f, 7f);
+    private static Vector3 MAX_SCALE = new Vector3(10f, 10f, 10f);
     private static Vector3 MIN_SCALE = new Vector3(1f, 1f, 1f);
 
     void Start() {}
