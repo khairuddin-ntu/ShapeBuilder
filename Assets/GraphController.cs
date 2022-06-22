@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Graph : MonoBehaviour
+public class GraphController : MonoBehaviour
 {
     private static float ROTATION_SPEED = 7.0f;
     private static float SCALE_SPEED = 0.7f;
