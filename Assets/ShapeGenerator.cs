@@ -16,7 +16,6 @@ public class ShapeGenerator : MonoBehaviour
 
     public void GenerateShape()
     {
-        Debug.Log($"{TAG}: GenerateShape: Slider value = {slider.value}");
         switch (slider.value)
         {
             case SLIDER_2D_VALUE:
@@ -35,8 +34,8 @@ public class ShapeGenerator : MonoBehaviour
         for (float u = 0; u <= 1; u += 1f / 100)
         {
             vectors.Add(new Vector3(
-                (9 * Mathf.Cos(2 * Mathf.PI * u)) - (7 / 2 * (1 + Mathf.Cos(4 * Mathf.PI * u))),
-                (9 * Mathf.Cos(2 * Mathf.PI * u)) - (7 / 2 * Mathf.Sin(4 * Mathf.PI * u)),
+                (27 * u) - 9,
+                Mathf.Cos(18 * Mathf.PI * u),
                 0
             ));
         }
