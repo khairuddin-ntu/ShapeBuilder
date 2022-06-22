@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -29,7 +30,16 @@ public class ShapeGenerator : MonoBehaviour
 
     private void Generate2dShape()
     {
-        Debug.Log($"{TAG}: GenerateShape: Should generate 2D shape");
+        // TODO: Replace with equation from user input and run in another thread
+        List<Vector3> vectors = new();
+        for (float u = 0; u <= 1; u += 1f / 100)
+        {
+            vectors.Add(new Vector3(
+                (9 * Mathf.Cos(2 * Mathf.PI * u)) - (7 / 2 * (1 + Mathf.Cos(4 * Mathf.PI * u))),
+                (9 * Mathf.Cos(2 * Mathf.PI * u)) - (7 / 2 * Mathf.Sin(4 * Mathf.PI * u)),
+                0
+            ));
+        }
     }
 
     private void Generate3dShape()
