@@ -39,6 +39,11 @@ public class ShapeGenerator : MonoBehaviour
                 0
             ));
         }
+
+        LineRenderer lineRenderer = GetComponent<LineRenderer>();
+        Debug.Log($"{TAG}: Generate2dShape: Is lineRenderer null? {lineRenderer == null}");
+        lineRenderer.positionCount = vectors.Count;
+        lineRenderer.SetPositions(vectors.ToArray());
     }
 
     private void Generate3dShape()
