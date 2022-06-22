@@ -1,14 +1,11 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShapeCreator : MonoBehaviour
 {
-    void Start()
-    {
-        
-    }
+    public Slider slider;
 
-    void Update()
-    {
-        
-    }
+    private void Start() { }
+
+    private void Update() { }
 }
