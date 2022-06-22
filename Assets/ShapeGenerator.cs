@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ShapeCreator : MonoBehaviour
+public class ShapeGenerator : MonoBehaviour
 {
     public Slider slider;
 
