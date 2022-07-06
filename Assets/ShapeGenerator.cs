@@ -19,7 +19,7 @@ public class ShapeGenerator : MonoBehaviour
     public void GenerateShape()
     {
         Debug.Log($"{TAG}: GenerateShape: resolution = {resolution}");
-        if (resolution < 0)
+        if (resolution <= 0)
         {
             return;
         }
