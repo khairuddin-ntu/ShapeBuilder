@@ -10,12 +10,20 @@ public class ShapeGenerator : MonoBehaviour
 
     public Slider slider;
 
+    private int resolution = -1;
+
     private void Start() { }
 
     private void Update() { }
 
     public void GenerateShape()
     {
+        Debug.Log($"{TAG}: GenerateShape: resolution = {resolution}");
+        if (resolution < 0)
+        {
+            return;
+        }
+
         switch (slider.value)
         {
             case SLIDER_2D_VALUE:
@@ -24,6 +32,14 @@ public class ShapeGenerator : MonoBehaviour
             case SLIDER_3D_VALUE:
                 Generate3dShape();
                 break;
+        }
+    }
+
+    public void OnResolutionChange(string resFieldValue)
+    {
+        if (string.IsNullOrEmpty(resFieldValue) || !int.TryParse(resFieldValue, out resolution))
+        {
+            resolution = -1;
         }
     }
 
