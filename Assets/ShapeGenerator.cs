@@ -47,7 +47,7 @@ public class ShapeGenerator : MonoBehaviour
     {
         // TODO: Replace with equation from user input and run in another thread
         List<Vector3> vectors = new();
-        for (float u = 0; u <= 1; u += 1f / 100)
+        for (float u = 0; u <= 1; u += 1f / resolution)
         {
             vectors.Add(new Vector3(
                 (27 * u) - 9,
