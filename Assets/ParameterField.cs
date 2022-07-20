@@ -1,7 +1,7 @@
 using UnityEngine;
 using TMPro;
 
-public class ParameterField : MonoBehaviour
+public class ParameterField : MonoBehaviour, Validator
 {
     public TMP_Text paramLabel;
 
@@ -36,5 +36,10 @@ public class ParameterField : MonoBehaviour
         Debug.Log($"OnMaxValueChange: Field value = {maxFieldValue}");
         IntUtils.SaveToIntField(maxFieldValue, ref maxValue, 1);
         Debug.Log($"OnMaxValueChange: Value changed to {maxValue}");
+    }
+
+    ValidationResult ValidateInputs()
+    {
+        return new Success();
     }
 }
