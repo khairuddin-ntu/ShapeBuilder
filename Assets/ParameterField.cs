@@ -40,6 +40,12 @@ public class ParameterField : MonoBehaviour, Validator
 
     ValidationResult ValidateInputs()
     {
+        // Check that min is less than max
+        if (minValue >= maxValue)
+        {
+            return new Error($"Minimum value for parameter {paramName} cannot be the same or more than the maximum value");
+        }
+
         return new Success();
     }
 }
