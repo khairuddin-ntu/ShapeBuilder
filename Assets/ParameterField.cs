@@ -9,11 +9,17 @@ public class ParameterField : MonoBehaviour
 
     void Start()
     {
-        paramLabel.text = $"{paramName} = [";
+        if (paramName != null)
+        {
+            paramLabel.text = $"{paramName} = [";
+        }
     }
 
-    void Update()
+    void Update() { }
+
+    void SetParamName(string paramName)
     {
-        
+        this.paramName = paramName;
+        paramLabel.text = $"{paramName} = [";
     }
 }
