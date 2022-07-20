@@ -38,7 +38,7 @@ public class ParameterField : MonoBehaviour, Validator
         Debug.Log($"OnMaxValueChange: Value changed to {maxValue}");
     }
 
-    ValidationResult ValidateInputs()
+    public ValidationResult ValidateInputs()
     {
         // Check that min is less than max
         if (minValue >= maxValue)

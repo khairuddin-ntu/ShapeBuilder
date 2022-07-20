@@ -1,5 +1,5 @@
-﻿abstract record ValidationResult;
+﻿public abstract record ValidationResult;
 
-record Success : ValidationResult;
+public record Success : ValidationResult;
 
-record Error(string ErrorMessage) : ValidationResult;
+public record Error(string ErrorMessage) : ValidationResult;
