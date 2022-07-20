@@ -27,24 +27,14 @@ public class ParameterField : MonoBehaviour
     public void OnMinValueChange(string minFieldValue)
     {
         Debug.Log($"OnMinValueChange: Field value = {minFieldValue}");
-
-        if (string.IsNullOrEmpty(minFieldValue) || !int.TryParse(minFieldValue, out minValue))
-        {
-            minValue = 0;
-        }
-
+        IntUtils.SaveToIntField(minFieldValue, ref minValue, 0);
         Debug.Log($"OnMinValueChange: Value changed to {minValue}");
     }
 
     public void OnMaxValueChange(string maxFieldValue)
     {
         Debug.Log($"OnMaxValueChange: Field value = {maxFieldValue}");
-
-        if (string.IsNullOrEmpty(maxFieldValue) || !int.TryParse(maxFieldValue, out maxValue))
-        {
-            maxValue = 1;
-        }
-
+        IntUtils.SaveToIntField(maxFieldValue, ref maxValue, 1);
         Debug.Log($"OnMaxValueChange: Value changed to {maxValue}");
     }
 }
