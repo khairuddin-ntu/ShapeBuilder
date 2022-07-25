@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class ParameterSection : MonoBehaviour, Validator
@@ -6,6 +7,8 @@ public class ParameterSection : MonoBehaviour, Validator
     public ParameterField uField;
     public ParameterField vField;
     public ParameterField wField;
+
+    public Button addButton;
 
     void Start()
     {
@@ -51,5 +54,33 @@ public class ParameterSection : MonoBehaviour, Validator
 
     public void OnDeleteWFieldClick(BaseEventData _) => DisableField(wField);
 
-    private void DisableField(ParameterField field) => field.gameObject.SetActive(false);
+    public void OnAddParameterClick()
+    {
+        // Enable v field if not enabled
+        if (!vField.gameObject.activeSelf)
+        {
+            vField.gameObject.SetActive(true);
+        }
+        // Otherwise enable w field if not enabled
+        else if (!wField.gameObject.activeSelf)
+        {
+            wField.gameObject.SetActive(true);
+            if (vField.gameObject.activeSelf)
+            {
+                addButton.gameObject.SetActive(false);
+            }
+        }
+
+        // Disable add parameter button if all field are enabled
+        if (wField.gameObject.activeSelf && vField.gameObject.activeSelf)
+        {
+            addButton.gameObject.SetActive(false);
+        }
+    }
+
+    private void DisableField(ParameterField field)
+    {
+        field.gameObject.SetActive(false);
+        addButton.gameObject.SetActive(true);
+    }
 }
