@@ -39,4 +39,6 @@ public class ParameterField : MonoBehaviour, Validator
 
         return new Success();
     }
+
+    public Parameter GetParameter() => new(paramName, minValue, maxValue);
 }

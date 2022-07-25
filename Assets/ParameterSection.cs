@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+
+using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
@@ -70,6 +72,23 @@ public class ParameterSection : MonoBehaviour, Validator
         {
             addButton.gameObject.SetActive(false);
         }
+    }
+
+    public List<Parameter> GetParameters()
+    {
+        List<Parameter> parameters = new() { uField.GetParameter() };
+
+        if (vField.gameObject.activeSelf)
+        {
+            parameters.Add(vField.GetParameter());
+        }
+
+        if (wField.gameObject.activeSelf)
+        {
+            parameters.Add(wField.GetParameter());
+        }
+
+        return parameters;
     }
 
     private void DisableField(ParameterField field)

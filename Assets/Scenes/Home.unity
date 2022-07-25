@@ -2214,6 +2214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 2955757}
+  paramSection: {fileID: 1618188916}
 --- !u!120 &720464286
 LineRenderer:
   m_ObjectHideFlags: 0
