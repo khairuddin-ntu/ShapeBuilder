@@ -9,6 +9,7 @@ public class ShapeGenerator : MonoBehaviour
     private const int SLIDER_3D_VALUE = 1;
 
     public Slider slider;
+    public ParameterSection paramSection;
 
     private int resolution = -1;
 
@@ -21,6 +22,13 @@ public class ShapeGenerator : MonoBehaviour
         Debug.Log($"{TAG}: GenerateShape: resolution = {resolution}");
         if (resolution <= 0)
         {
+            return;
+        }
+
+        ValidationResult paramValidation = paramSection.ValidateInputs();
+        if (paramValidation is not Success)
+        {
+            Debug.Log($"{TAG}: Parameter error = {(paramValidation as Error).ErrorMessage}");
             return;
         }
 
@@ -45,9 +53,11 @@ public class ShapeGenerator : MonoBehaviour
 
     private void Generate2dShape()
     {
+        List<Parameter> parameters = paramSection.GetParameters();
+
         // TODO: Replace with equation from user input and run in another thread
         List<Vector3> vectors = new();
-        for (float u = 0; u <= 1; u += 1f / resolution)
+        for (float u = parameters[0].Min; u <= parameters[0].Max; u += 1f / resolution)
         {
             vectors.Add(new Vector3(
                 (27 * u) - 9,
