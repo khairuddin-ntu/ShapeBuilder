@@ -12,7 +12,7 @@ public class ParameterField : MonoBehaviour, Validator
     {
         if (paramName != null)
         {
-            paramLabel.text = $"{paramName} = [";
+            paramLabel.text = paramName;
         }
     }
 
@@ -21,7 +21,7 @@ public class ParameterField : MonoBehaviour, Validator
     void SetParamName(string paramName)
     {
         this.paramName = paramName;
-        paramLabel.text = $"{paramName} = [";
+        paramLabel.text = paramName;
     }
 
     public void OnMinValueChange(string minFieldValue)
