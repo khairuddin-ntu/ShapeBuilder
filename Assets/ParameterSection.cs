@@ -3,7 +3,9 @@ using UnityEngine;
 
 public class ParameterSection : MonoBehaviour, Validator
 {
-    public List<ParameterField> fields;
+    public ParameterField uField;
+    public ParameterField vField;
+    public ParameterField wField;
 
     void Start()
     {
@@ -18,15 +20,30 @@ public class ParameterSection : MonoBehaviour, Validator
     public ValidationResult ValidateInputs()
     {
         ValidationResult result;
-        foreach (Validator validator in fields)
+
+        // Validate u field
+        result = uField.ValidateInputs();
+        if (result is not Success)
         {
-            result = validator.ValidateInputs();
+            return result;
+        }
+
+        // Validate v field if active
+        if (vField.gameObject.activeSelf)
+        {
+            result = vField.ValidateInputs();
             if (result is not Success)
             {
                 return result;
             }
         }
 
-        return new Success();
+        // Validate w field if active
+        if (wField.gameObject.activeSelf)
+        {
+            return wField.ValidateInputs();
+        }
+
+        return result;
     }
 }
