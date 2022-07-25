@@ -10,19 +10,10 @@ public class ParameterField : MonoBehaviour, Validator
 
     void Start()
     {
-        if (paramName != null)
-        {
-            paramLabel.text = paramName;
-        }
+        paramLabel.text = paramName;
     }
 
     void Update() { }
-
-    void SetParamName(string paramName)
-    {
-        this.paramName = paramName;
-        paramLabel.text = paramName;
-    }
 
     public void OnMinValueChange(string minFieldValue)
     {
