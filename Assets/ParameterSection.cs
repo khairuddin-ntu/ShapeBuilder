@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class ParameterSection : MonoBehaviour, Validator
 {
@@ -46,4 +46,10 @@ public class ParameterSection : MonoBehaviour, Validator
 
         return result;
     }
+
+    public void OnDeleteVFieldClick(BaseEventData _) => DisableField(vField);
+
+    public void OnDeleteWFieldClick(BaseEventData _) => DisableField(wField);
+
+    private void DisableField(ParameterField field) => field.gameObject.SetActive(false);
 }
