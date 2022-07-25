@@ -2,7 +2,6 @@
 
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 
 public class ParameterSection : MonoBehaviour, Validator
 {
@@ -46,9 +45,9 @@ public class ParameterSection : MonoBehaviour, Validator
         return result;
     }
 
-    public void OnDeleteVFieldClick(BaseEventData _) => DisableField(vField);
+    public void OnDeleteVFieldClick() => DisableField(vField);
 
-    public void OnDeleteWFieldClick(BaseEventData _) => DisableField(wField);
+    public void OnDeleteWFieldClick() => DisableField(wField);
 
     public void OnAddParameterClick()
     {
