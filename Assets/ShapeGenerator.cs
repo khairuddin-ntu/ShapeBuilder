@@ -11,7 +11,7 @@ public class ShapeGenerator : MonoBehaviour
     public Slider slider;
     public ParameterSection paramSection;
 
-    private int resolution = -1;
+    private int resolution = 100;
 
     private void Start() { }
 
