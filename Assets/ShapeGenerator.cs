@@ -5,10 +5,7 @@ using UnityEngine.UI;
 public class ShapeGenerator : MonoBehaviour
 {
     private const string TAG = "ShapeGenerator";
-    private const int SLIDER_2D_VALUE = 0;
-    private const int SLIDER_3D_VALUE = 1;
 
-    public Slider slider;
     public ParameterSection paramSection;
 
     private int resolution = 100;
@@ -32,14 +29,14 @@ public class ShapeGenerator : MonoBehaviour
             return;
         }
 
-        switch (slider.value)
+        List<Parameter> parameters = paramSection.GetParameters();
+        if (parameters.Count == 1)
         {
-            case SLIDER_2D_VALUE:
-                Generate2dShape();
-                break;
-            case SLIDER_3D_VALUE:
-                Generate3dShape();
-                break;
+            Generate2dShape(parameters[0]);
+        }
+        else
+        {
+            Generate3dShape(parameters);
         }
     }
 
@@ -51,13 +48,11 @@ public class ShapeGenerator : MonoBehaviour
         }
     }
 
-    private void Generate2dShape()
+    private void Generate2dShape(Parameter parameter)
     {
-        List<Parameter> parameters = paramSection.GetParameters();
-
         // TODO: Replace with equation from user input and run in another thread
         List<Vector3> vectors = new();
-        for (float u = parameters[0].Min; u <= parameters[0].Max; u += 1f / resolution)
+        for (float u = parameter.Min; u <= parameter.Max; u += 1f / resolution)
         {
             vectors.Add(new Vector3(
                 (27 * u) - 9,
@@ -67,12 +62,11 @@ public class ShapeGenerator : MonoBehaviour
         }
 
         LineRenderer lineRenderer = GetComponent<LineRenderer>();
-        Debug.Log($"{TAG}: Generate2dShape: Is lineRenderer null? {lineRenderer == null}");
         lineRenderer.positionCount = vectors.Count;
         lineRenderer.SetPositions(vectors.ToArray());
     }
 
-    private void Generate3dShape()
+    private void Generate3dShape(List<Parameter> parameters)
     {
         Debug.Log($"{TAG}: GenerateShape: Should generate 3D shape");
     }
