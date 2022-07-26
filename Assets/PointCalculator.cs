@@ -11,9 +11,9 @@ public static class PointCalculator
         {
             // TODO: Replace with equation from user input
             vectors.Add(new Vector3(
-                (27 * u) - 9,
-                Mathf.Cos(18 * Mathf.PI * u),
-                0
+                10 * u * Mathf.Cos(22 * Mathf.PI * u),
+                10 * u * Mathf.Sin(22 * Mathf.PI * u),
+                (10 * u) - 5
             ));
         }
 
