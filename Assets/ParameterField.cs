@@ -31,10 +31,17 @@ public class ParameterField : MonoBehaviour, Validator
 
     public ValidationResult ValidateInputs()
     {
-        // Check that min is less than max
-        if (minValue >= maxValue)
+
+        // Check that min is not equal to max
+        if (minValue == maxValue)
         {
-            return new Error($"Minimum value for parameter {paramName} cannot be the same or more than the maximum value");
+            return new Error($"Parameter {paramName}: Minimum value [{minValue}] cannot be the same as maximum value [{maxValue}]");
+        }
+
+        // Check that min is less than max
+        if (minValue > maxValue)
+        {
+            return new Error($"Parameter {paramName}: Minimum value [{minValue}] cannot be more than maximum value [{maxValue}]");
         }
 
         return new Success();
