@@ -51,7 +51,7 @@ public class ShapeGenerator : MonoBehaviour
 
     private async void Generate2dShape(Parameter parameter)
     {
-        List<Vector3> vectors = await Task.Run(() => Calculate2dPoints(parameter));
+        List<Vector3> vectors = await Task.Run(() => PointCalculator.Calculate2dPoints(parameter, resolution));
 
         LineRenderer lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.positionCount = vectors.Count;
@@ -61,22 +61,5 @@ public class ShapeGenerator : MonoBehaviour
     private void Generate3dShape(List<Parameter> parameters)
     {
         Debug.Log($"{TAG}: GenerateShape: Should generate 3D shape");
-    }
-
-    private List<Vector3> Calculate2dPoints(Parameter parameter)
-    {
-        List<Vector3> vectors = new();
-
-        for (float u = parameter.Min; u <= parameter.Max; u += 1f / resolution)
-        {
-            // TODO: Replace with equation from user input
-            vectors.Add(new Vector3(
-                (27 * u) - 9,
-                Mathf.Cos(18 * Mathf.PI * u),
-                0
-            ));
-        }
-
-        return vectors;
     }
 }
