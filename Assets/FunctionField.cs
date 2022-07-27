@@ -3,9 +3,12 @@ using TMPro;
 
 public class FunctionField : MonoBehaviour
 {
-    public TMP_Text nameLabel;
+    private const string TAG = "FunctionField";
 
+    public TMP_Text nameLabel;
     public string functionName;
+
+    private string functionInput = "";
 
     void Start()
     {
@@ -13,4 +16,10 @@ public class FunctionField : MonoBehaviour
     }
 
     void Update() { }
+
+    public void OnEndFunctionEdit(string functionInput)
+    {
+        Debug.Log($"{TAG}: ++OnFunctionEditEnd++  {functionName} = {functionInput}");
+        this.functionInput = functionInput;
+    }
 }
