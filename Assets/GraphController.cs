@@ -4,27 +4,27 @@ public class GraphController : MonoBehaviour
 {
     private const float ROTATION_SPEED = 7.0f;
     private const float SCALE_SPEED = 0.7f;
-    private static readonly Vector3 MAX_SCALE = new Vector3(10f, 10f, 10f);
-    private static readonly Vector3 MIN_SCALE = new Vector3(1f, 1f, 1f);
+    private const float MAX_SCALE = 10f;
+    private const float MIN_SCALE = 1f;
 
     public Transform graphTransform;
 
     void Update()
     {
         float mouseScroll = Input.GetAxis("Mouse ScrollWheel");
-        if (mouseScroll != 0f)
+        if (mouseScroll == 0f) return;
+
+        float scale = graphTransform.localScale.x + (mouseScroll * SCALE_SPEED);
+        if (scale > MAX_SCALE)
         {
-            float scale = mouseScroll * SCALE_SPEED;
-            graphTransform.localScale += new Vector3(scale, scale, scale);
-            if (graphTransform.localScale.x > MAX_SCALE.x)
-            {
-                graphTransform.localScale = MAX_SCALE;
-            }
-            else if (graphTransform.localScale.x < MIN_SCALE.x)
-            {
-                graphTransform.localScale = MIN_SCALE;
-            }
+            scale = MAX_SCALE;
         }
+        else if (scale < MIN_SCALE)
+        {
+            scale = MIN_SCALE;
+        }
+
+        graphTransform.localScale = new Vector3(scale, scale, scale);
 
     }
 
