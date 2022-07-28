@@ -1,5 +1,8 @@
-﻿public abstract record ValidationResult;
+﻿namespace ShapeBuilder
+{
+    public abstract record ValidationResult;
 
-public record Success : ValidationResult;
+    public record Success : ValidationResult;
 
-public record Error(string ErrorMessage) : ValidationResult;
+    public record Error(string ErrorMessage) : ValidationResult;
+}

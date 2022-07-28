@@ -3,17 +3,15 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ParameterSection : MonoBehaviour, Validator
+using ShapeBuilder;
+
+public class ParameterSection : MonoBehaviour, IValidator
 {
     public ParameterField uField;
     public ParameterField vField;
     public ParameterField wField;
 
     public Button addButton;
-
-    void Start() { }
-
-    void Update() { }
 
     public ValidationResult ValidateInputs()
     {

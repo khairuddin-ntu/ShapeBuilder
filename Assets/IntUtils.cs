@@ -1,10 +1,13 @@
-public static class IntUtils
+namespace ShapeBuilder
 {
-    public static void SaveToIntField(string strValue, ref int intField, int defaultValue)
+    public static class IntUtils
     {
-        if (string.IsNullOrEmpty(strValue) || !int.TryParse(strValue, out intField))
+        public static void SaveToIntField(string strValue, ref int intField, int defaultValue)
         {
-            intField = defaultValue;
+            if (string.IsNullOrEmpty(strValue) || !int.TryParse(strValue, out intField))
+            {
+                intField = defaultValue;
+            }
         }
     }
 }

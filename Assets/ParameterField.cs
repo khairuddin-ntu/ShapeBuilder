@@ -1,7 +1,9 @@
 using UnityEngine;
 using TMPro;
 
-public class ParameterField : MonoBehaviour, Validator
+using ShapeBuilder;
+
+public class ParameterField : MonoBehaviour, IValidator
 {
     public TMP_Text paramLabel;
 
@@ -12,8 +14,6 @@ public class ParameterField : MonoBehaviour, Validator
     {
         paramLabel.text = paramName;
     }
-
-    void Update() { }
 
     public void OnMinValueChange(string minFieldValue)
     {

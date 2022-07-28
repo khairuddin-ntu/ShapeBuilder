@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Unity.Jobs;
 using UnityEngine;
+
+using ShapeBuilder;
 
 public class ShapeGenerator : MonoBehaviour
 {
@@ -10,10 +11,6 @@ public class ShapeGenerator : MonoBehaviour
     public ParameterSection paramSection;
 
     private int resolution = 100;
-
-    private void Start() { }
-
-    private void Update() { }
 
     public void GenerateShape()
     {

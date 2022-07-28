@@ -1,4 +1,0 @@
-﻿interface Validator
-{
-    ValidationResult ValidateInputs();
-}
