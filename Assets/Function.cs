@@ -1,25 +1,22 @@
 namespace ShapeBuilder
 {
-    public abstract record FunctionPart
+    public abstract record FunctionPart { }
+
+    public abstract record ValuePart<T> : FunctionPart where T : unmanaged
     {
         protected string rawValue;
 
-        public FunctionPart(char initialChar)
+        public ValuePart(char initialChar)
         {
             rawValue = initialChar.ToString();
         }
+
+        public abstract T GetValue();
 
         protected void AddCharacter(char c)
         {
             rawValue += c;
         }
-    }
-
-    public abstract record ValuePart<T> : FunctionPart where T : unmanaged
-    {
-        public ValuePart(char initialChar) : base(initialChar) { }
-
-        public abstract T GetValue();
     }
 
     public record IntPart : ValuePart<int>
