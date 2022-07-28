@@ -1,13 +1,16 @@
-﻿public struct Parameter
+﻿namespace ShapeBuilder
 {
-    public string Label { get; }
-    public int Min { get; }
-    public int Max { get; }
-
-    public Parameter(string label, int min, int max)
+    public struct Parameter
     {
-        Label = label;
-        Min = min;
-        Max = max;
+        public string Label { get; }
+        public int Min { get; }
+        public int Max { get; }
+
+        public Parameter(string label, int min, int max)
+        {
+            Label = label;
+            Min = min;
+            Max = max;
+        }
     }
 }

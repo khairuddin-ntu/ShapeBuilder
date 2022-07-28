@@ -3,6 +3,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+using ShapeBuilder;
+
 public class ParameterSection : MonoBehaviour, Validator
 {
     public ParameterField uField;

@@ -1,6 +1,8 @@
 using UnityEngine;
 using TMPro;
 
+using ShapeBuilder;
+
 public class ParameterField : MonoBehaviour, Validator
 {
     public TMP_Text paramLabel;
