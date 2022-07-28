@@ -9,25 +9,29 @@ public class GraphController : MonoBehaviour
 
     public Transform graphTransform;
 
-    void Start() {}
-
-    void Update() {
+    void Update()
+    {
         float mouseScroll = Input.GetAxis("Mouse ScrollWheel");
-        if (mouseScroll != 0f) {
+        if (mouseScroll != 0f)
+        {
             float scale = mouseScroll * SCALE_SPEED;
             graphTransform.localScale += new Vector3(scale, scale, scale);
-            if (graphTransform.localScale.x > MAX_SCALE.x) {
+            if (graphTransform.localScale.x > MAX_SCALE.x)
+            {
                 graphTransform.localScale = MAX_SCALE;
-            } else if (graphTransform.localScale.x < MIN_SCALE.x) {
+            }
+            else if (graphTransform.localScale.x < MIN_SCALE.x)
+            {
                 graphTransform.localScale = MIN_SCALE;
             }
         }
 
     }
 
-    public void OnMouseDrag() {
+    public void OnMouseDrag()
+    {
         float rotateX = Input.GetAxis("Mouse X") * ROTATION_SPEED;
-		float rotateY = Input.GetAxis("Mouse Y") * ROTATION_SPEED;
+        float rotateY = Input.GetAxis("Mouse Y") * ROTATION_SPEED;
         graphTransform.Rotate(rotateY, -rotateX, 0.0f);
     }
 }

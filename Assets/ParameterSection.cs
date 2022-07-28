@@ -13,10 +13,6 @@ public class ParameterSection : MonoBehaviour, IValidator
 
     public Button addButton;
 
-    void Start() { }
-
-    void Update() { }
-
     public ValidationResult ValidateInputs()
     {
         ValidationResult result;

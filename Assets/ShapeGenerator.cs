@@ -12,10 +12,6 @@ public class ShapeGenerator : MonoBehaviour
 
     private int resolution = 100;
 
-    private void Start() { }
-
-    private void Update() { }
-
     public void GenerateShape()
     {
         Debug.Log($"{TAG}: GenerateShape: resolution = {resolution}");

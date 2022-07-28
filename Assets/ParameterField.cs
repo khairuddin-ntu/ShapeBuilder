@@ -15,8 +15,6 @@ public class ParameterField : MonoBehaviour, IValidator
         paramLabel.text = paramName;
     }
 
-    void Update() { }
-
     public void OnMinValueChange(string minFieldValue)
     {
         Debug.Log($"OnMinValueChange: Field value = {minFieldValue}");
