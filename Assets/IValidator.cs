@@ -1,6 +1,6 @@
 ﻿namespace ShapeBuilder
 {
-    interface Validator
+    interface IValidator
     {
         ValidationResult ValidateInputs();
     }

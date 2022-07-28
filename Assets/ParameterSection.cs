@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 using ShapeBuilder;
 
-public class ParameterSection : MonoBehaviour, Validator
+public class ParameterSection : MonoBehaviour, IValidator
 {
     public ParameterField uField;
     public ParameterField vField;

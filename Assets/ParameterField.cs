@@ -3,7 +3,7 @@ using TMPro;
 
 using ShapeBuilder;
 
-public class ParameterField : MonoBehaviour, Validator
+public class ParameterField : MonoBehaviour, IValidator
 {
     public TMP_Text paramLabel;
 
