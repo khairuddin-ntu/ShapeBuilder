@@ -20,4 +20,17 @@ namespace ShapeBuilder
             return result;
         }
     }
+
+    public static class DoubleUtils
+    {
+        public static double ParseString(string strValue, double defaultValue = -1)
+        {
+            if (double.TryParse(strValue, out double result))
+            {
+                result = defaultValue;
+            }
+
+            return result;
+        }
+    }
 }
