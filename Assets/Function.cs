@@ -2,6 +2,16 @@ namespace ShapeBuilder
 {
     public abstract record FunctionPart { }
 
+    public abstract record ParameterPart : FunctionPart
+    {
+        public string ParamName { get; }
+
+        public ParameterPart(char paramName)
+        {
+            ParamName = paramName.ToString();
+        }
+    }
+
     public abstract record ValuePart<T> : FunctionPart where T : unmanaged
     {
         protected string rawValue;
