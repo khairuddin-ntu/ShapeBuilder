@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class GraphController : MonoBehaviour
 {
-    private static float ROTATION_SPEED = 7.0f;
-    private static float SCALE_SPEED = 0.7f;
-    private static Vector3 MAX_SCALE = new Vector3(10f, 10f, 10f);
-    private static Vector3 MIN_SCALE = new Vector3(1f, 1f, 1f);
+    private const float ROTATION_SPEED = 7.0f;
+    private const float SCALE_SPEED = 0.7f;
+    private static readonly Vector3 MAX_SCALE = new Vector3(10f, 10f, 10f);
+    private static readonly Vector3 MIN_SCALE = new Vector3(1f, 1f, 1f);
 
     public Transform graphTransform;
 
