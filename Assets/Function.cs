@@ -38,4 +38,14 @@ namespace ShapeBuilder
             return DoubleUtils.ParseString(rawValue, double.MinValue);
         }
     }
+
+    public abstract record OperationPart : FunctionPart { }
+
+    public record PlusOperationPart : OperationPart { }
+
+    public record MinusOperationPart : OperationPart { }
+
+    public record MultiplyOperationPart : OperationPart { }
+
+    public record DivideOperationPart : OperationPart { }
 }
